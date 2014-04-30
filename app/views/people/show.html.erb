@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+
+<p>
+  <strong>Twitter handle:</strong>
+  <%= @person.twitter_handle %>
+</p>
+
+<p>
+  <strong>Instagram name:</strong>
+  <%= @person.instagram_name %>
+</p>
+
+<p> Tweets </p>
+<%= @person.pull_tweets %>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
