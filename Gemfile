@@ -5,6 +5,10 @@ gem 'rails', '4.0.0'
 
 ##cust. gems
 gem 'twitter'
+gem 'rest-client'
+gem 'json'
+gem 'devise'
+gem 'figaro'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

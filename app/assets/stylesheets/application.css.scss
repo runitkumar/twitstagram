@@ -11,3 +11,33 @@
  *= require_self
  *= require_tree .
  */
+
+$body-bg:      				 							#ecf0f1;
+$font-family-sans-serif: 						'Dosis', sans-serif;
+$navbar-height:											45px;
+$navbar-default-bg:    							#2c3e50; 
+$navbar-default-link-color: 				white;
+$navbar-default-brand-color:				#e74c3c;
+$navbar-default-link-hover-color:		#95a5a6;
+$jumbotron-bg: 											#ecf0f1;
+
+.center {
+	text-align: center;
+}
+
+.navbar-brand {
+	font-family: 'Rockwell', sans-serif;
+}
+
+#pics {
+	margin: 0 auto;
+}
+
+.box {
+	margin: 5px;
+	width: 300px;
+}
+
+.box img {
+	width: 100%;
+}

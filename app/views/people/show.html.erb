@@ -15,8 +15,50 @@
   <%= @person.instagram_name %>
 </p>
 
-<p> Tweets </p>
-<%= @person.pull_tweets %>
+<p>
+  <strong>Instagram ID:</strong>
+  <%= @person.instagram_id %>
+</p>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<div class="row">
+  <div class="col-md-6">
+    <% begin %>
+      <% if not @person.twitter_handle.nil? %>
+        <center><h3> Tweets </h3></center>
+        <ul class="list-group">
+          <% Person.pull_tweets(@person.twitter_handle).each do |tweet|%>
+          <li class="list-group-item"><%= tweet.text %></li>
+          <% end %> 
+        </ul>
+      <% end%>
+    <%rescue%>
+    <% end%>
+  </div>
+  
+  <div class="col-md-6">
+    <center>
+      <h3> Instagrams </h3>
+      <div id="pics">
+        <% if not @person.instagram_name.nil? %>
+          <% links = Person.pull_instagrams(@person.instagram_id) %>
+          <% links.each do |pic| %>
+            <% pic.each_pair do |key, value| %>
+              <div class="box panel panel-default">
+                <%= image_tag value.to_s %><br>
+                <div class="panel-body">
+                  <p>Blank text</p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </center>
+  </div>
+</div>
+
+<center>
+  <%= link_to 'Destroy', @person, method: :delete, data: { confirm: 'Are you sure?' } %>  |
+  <%= link_to 'Edit', edit_person_path(@person) %> |
+  <%= link_to 'Back', people_path %>
+</center>
