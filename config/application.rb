@@ -21,11 +21,3 @@ module Twitstagram
     # config.i18n.default_locale = :de
   end
 end
-
-rails_root = Rails.root || File.dirname(__FILE__) + '/../..'
-config = YAML.load_file(rails_root.to_s + '/config/config.yml')
-if config.key?(Rails.env) && config[Rails.env].is_a?(Hash)
-  config[Rails.env].each do |key, value|
-    ENV[key] = value.to_s
-  end
-end
