@@ -154,7 +154,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
-  figaro
+  figaro (~> 0.7.0)
   jbuilder (~> 1.2)
   jquery-rails
   json

@@ -8,7 +8,7 @@ gem 'twitter'
 gem 'rest-client'
 gem 'json'
 gem 'devise'
-gem 'figaro'
+gem "figaro", "~> 0.7.0"
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
