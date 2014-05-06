@@ -1,24 +1,19 @@
-<p id="notice"><%= notice %></p>
+<center>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @person.name %>
-</p>
+  <h1><%= @person.name %></h1>
 
-<p>
-  <strong>Twitter handle:</strong>
-  <%= @person.twitter_handle %>
-</p>
+  <p>
+    <strong>Twitter:</strong>
+    <%= link_to("@#{@person.twitter_handle}", "http://twitter.com/#{@person.twitter_handle}", :target => "_blank") %>
+  </p>
 
-<p>
-  <strong>Instagram name:</strong>
-  <%= @person.instagram_name %>
-</p>
+  <p>
+    <strong>Instagram:</strong>
+    <%= link_to("@#{@person.instagram_name}","http://instagram.com/#{@person.instagram_name}", :target => "_blank") %>
+  </p>
 
-<p>
-  <strong>Instagram ID:</strong>
-  <%= @person.instagram_id %>
-</p>
+</center>
 
 <div class="row">
   <div class="col-md-6">
