@@ -1,11 +1,9 @@
 <%= render 'pages/home' unless user_signed_in? %>
+<center>
+	<h1>Available people:</h1>
+	<% @people.each do |person| %>
+	   <h4><%= link_to "#{person.name}", person %></h4>
+	<% end %>
+</center>
 
-<p>Available people:</p>
-<ul>
-  <% @people.each do |person| %>
-    <li><%= link_to "#{person.name}", person %></li>
-  <% end %>
-</ul>
 <br>
-
-<%= link_to '+ Add New Person', new_person_path %>

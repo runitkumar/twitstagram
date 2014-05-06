@@ -12,6 +12,8 @@
  *= require_tree .
  */
 
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed);
+
 $body-bg:      				 							#ecf0f1;
 $font-family-sans-serif: 						'Dosis', sans-serif;
 $navbar-height:											45px;
@@ -26,7 +28,7 @@ $jumbotron-bg: 											#ecf0f1;
 }
 
 .navbar-brand {
-	font-family: 'Rockwell', sans-serif;
+	font-family: 'Ubuntu Condensed', Verdana, sans-serif;
 }
 
 #pics {
