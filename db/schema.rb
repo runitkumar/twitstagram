@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501234633) do
+ActiveRecord::Schema.define(version: 20140506024428) do
 
   create_table "people", force: true do |t|
     t.string   "name"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20140501234633) do
     t.string   "instagram_name"
     t.integer  "twitter_id"
     t.integer  "instagram_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tweets", force: true do |t|
+    t.integer  "person_id"
+    t.text     "text"
+    t.integer  "retweet_count"
+    t.integer  "favorite_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

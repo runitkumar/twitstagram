@@ -22,7 +22,7 @@
         <center><h3> Tweets </h3></center>
         <ul class="list-group">
           <% Person.pull_tweets(@person.twitter_handle).each do |tweet|%>
-          <li class="list-group-item"><%= tweet.text %></li>
+          <li class="list-group-item"><%= tweet %></li>
           <% end %> 
         </ul>
       <% end%>
@@ -35,16 +35,14 @@
       <h3> Instagrams </h3>
       <div id="pics">
         <% if not @person.instagram_name.nil? %>
-          <% links = Person.pull_instagrams(@person.instagram_id) %>
-          <% links.each do |pic| %>
-            <% pic.each_pair do |key, value| %>
-              <div class="box panel panel-default">
-                <%= image_tag value.to_s %><br>
+          <% data = Person.pull_instagrams(@person.instagram_id) %>
+          <% data.each do |items| %>
+            <div class="box panel panel-default">
+              <%= image_tag items[:pic].to_s %><br>
                 <div class="panel-body">
-                  <p>Blank text</p>
+                  <p><%= items[:text] %></p>
                 </div>
-              </div>
-            <% end %>
+            </div>
           <% end %>
         <% end %>
       </div>
