@@ -1,6 +1,5 @@
 <center>
   <p id="notice"><%= notice %></p>
-
   <h1><%= @person.name %></h1>
 
   <p>
@@ -12,6 +11,12 @@
     <strong>Instagram:</strong>
     <%= link_to("@#{@person.instagram_name}","http://instagram.com/#{@person.instagram_name}", :target => "_blank") %>
   </p>
+
+  <p>
+    <strong>Instagram ID:</strong>
+    <%= "#{@person.instagram_id}" %>
+  </p>
+
 
 </center>
 
@@ -33,19 +38,24 @@
   <div class="col-md-6">
     <center>
       <h3> Instagrams </h3>
-      <div id="pics">
-        <% if not @person.instagram_name.nil? %>
-          <% data = Person.pull_instagrams(@person.instagram_id) %>
-          <% data.each do |items| %>
-            <div class="box panel panel-default">
-              <%= image_tag items[:pic].to_s %><br>
-                <div class="panel-body">
-                  <p><%= items[:text] %></p>
-                </div>
-            </div>
+      <% #begin %>
+        <div id="pics">
+          <% if not @person.instagram_name.nil? %>
+            <% data = Person.pull_instagrams(@person.instagram_id) %>
+            <% data.each do |items| %>
+              <div class="box panel panel-default">
+                <%= image_tag items[:pic].to_s %><br>
+                  <div class="panel-body">
+                    <% if not items[:text].nil? %>
+                      <p><%= items[:text] %></p>
+                    <% end %>
+                  </div>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% #rescue %>
+      <% #end %>
     </center>
   </div>
 </div>

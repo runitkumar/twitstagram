@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.search_for(params[:q])
   end
 
   # GET /people/1
@@ -45,6 +45,7 @@ class PeopleController < ApplicationController
   def update
     respond_to do |format|
       if @person.update(person_params)
+        @person.instagram_id = Person.find_instagram_id(@person.instagram_name)
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
         format.json { head :no_content }
       else
