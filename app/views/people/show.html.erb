@@ -3,6 +3,11 @@
   <h1><%= @person.name %></h1>
 
   <p>
+    <% pic = Person.instagram_profile_pic(@person.instagram_id) %>
+    <%= image_tag pic.to_s %>
+  </p>
+
+  <p>
     <strong>Twitter:</strong>
     <%= link_to("@#{@person.twitter_handle}", "http://twitter.com/#{@person.twitter_handle}", :target => "_blank") %>
   </p>
@@ -11,12 +16,6 @@
     <strong>Instagram:</strong>
     <%= link_to("@#{@person.instagram_name}","http://instagram.com/#{@person.instagram_name}", :target => "_blank") %>
   </p>
-
-  <p>
-    <strong>Instagram ID:</strong>
-    <%= "#{@person.instagram_id}" %>
-  </p>
-
 
 </center>
 
@@ -38,13 +37,13 @@
   <div class="col-md-6">
     <center>
       <h3> Instagrams </h3>
-      <% #begin %>
+      <% begin %>
         <div id="pics">
           <% if not @person.instagram_name.nil? %>
             <% data = Person.pull_instagrams(@person.instagram_id) %>
             <% data.each do |items| %>
-              <div class="box panel panel-default">
-                <%= image_tag items[:pic].to_s %><br>
+              <div class="box-ig panel panel-default">
+                <%= link_to(image_tag(items[:pic].to_s),items[:link]) %><br>
                   <div class="panel-body">
                     <% if not items[:text].nil? %>
                       <p><%= items[:text] %></p>
@@ -54,8 +53,8 @@
             <% end %>
           <% end %>
         </div>
-      <% #rescue %>
-      <% #end %>
+      <% rescue %>
+      <% end %>
     </center>
   </div>
 </div>

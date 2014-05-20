@@ -20,8 +20,14 @@ class Person < ActiveRecord::Base
 			else
 				ig[:text] = link["caption"]["text"]
 			end
+			ig[:link] = link["link"]
 			ig
 		end
+	end
+
+	def self.instagram_profile_pic(id)
+		data = JSON.load(RestClient.get("https://api.instagram.com/v1/users/#{id}/?client_id=#{ENV["instagram_key"]}"))
+		pic = data["data"]["profile_picture"]
 	end
 
 	def self.search_for(query)

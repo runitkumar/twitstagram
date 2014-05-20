@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require 'masonry/transitions'
  *= require_tree .
  */
 
@@ -36,6 +37,11 @@ $jumbotron-bg: 											#ecf0f1;
 }
 
 .box {
+	margin: 5px;
+	width: 200px;
+}
+
+.box-ig {
 	margin: 5px;
 	width: 300px;
 }

@@ -1,9 +1,24 @@
 <%= render 'pages/home' unless user_signed_in? %>
-<center>
-	<h1>Available people:</h1>
+<center><h1>Available people:</h1></center>
+<div id="pics" class="transitions-enabled">
 	<% @people.each do |person| %>
-	   <h4><%= link_to "#{person.name}", person %></h4>
+	  <div class="box panel panel-default">
+    	<% if not person.instagram_id.nil? %>
+    		<%= link_to image_tag(Person.instagram_profile_pic(person.instagram_id).to_s), person %>
+    	<% end %>
+    	<div class="panel-body">
+	 			<h4><strong><center><%= person.name %></center></strong></h4>
+	 			<center>
+	 				<div class="actions">
+	          <%= link_to edit_person_path(person) do %>
+	            <span class="glyphicon glyphicon-edit"></span> Edit
+	          <% end %>
+	          <%= link_to person, method: :delete, data: { confirm: 'Are you sure?' } do %>
+	          <span class="glyphicon glyphicon-trash"></span> Delete
+	          <% end %>
+	        </div>
+	      </center>
+			</div>
+		</div>	
 	<% end %>
-</center>
-
-<br>
+</div>

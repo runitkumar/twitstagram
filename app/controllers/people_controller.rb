@@ -44,8 +44,8 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1.json
   def update
     respond_to do |format|
+      @person.instagram_id = Person.find_instagram_id(@person.instagram_name)
       if @person.update(person_params)
-        @person.instagram_id = Person.find_instagram_id(@person.instagram_name)
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
         format.json { head :no_content }
       else
